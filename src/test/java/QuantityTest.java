@@ -72,7 +72,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void given0Inchand1Inch_ShouldReturnEqual(){
+    public void given0Inchand1Inch_ShouldReturnNotEqual(){
         Inch inch1 = new Inch(0.0);
         Inch inch2 = new Inch(1.0);
         Assertions.assertNotEquals(inch1,inch2);
@@ -86,7 +86,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void givenType0InchAnd1_ShouldReturnEqual(){
+    public void givenType0InchAnd1Inch_ShouldReturnEqual(){
         Inch inch1  = new Inch(0.0);
         Inch inch2  = new Inch(1.0);
         Assertions.assertEquals(inch1.getClass(),inch2.getClass());
@@ -100,7 +100,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void givenEquality0InchAnd0Inch_ShouldReturnNotEqual(){
+    public void givenEquality0InchAnd0Inch_ShouldReturnEqual(){
         Inch inch1 = new Inch(0.0);
         double inchOne = inch1.getValue();
         Inch inch2 = new Inch(0.0);
@@ -121,6 +121,67 @@ public class QuantityTest {
         Inch inch1 = new Inch(24.0);
         double actual = inch1.getInchToFeet();
         double expected = 1;
+        Assertions.assertNotEquals(actual,expected);
+    }
+
+    //Yard
+    @Test
+    public void given0Yardand0Yard_ShouldReturnEqual(){
+        Yard yard1 = new Yard(0.0);
+        Yard yard2 = new Yard(0.0);
+        Assertions.assertEquals(yard1,yard2);
+    }
+
+    @Test
+    public void given0Yardand1Yard_ShouldReturnNotEqual(){
+        Yard yard1 = new Yard(0.0);
+        Yard yard2 = new Yard(1.0);
+        Assertions.assertNotEquals(yard1,yard2);
+    }
+
+    @Test
+    public void givenNullYardAnd0Yard_ShouldReturnNotEqual(){
+        Yard yard1 = null;
+        Yard yard2 = new Yard(1.0);
+        Assertions.assertNotEquals(yard1,yard2);
+    }
+
+    @Test
+    public void givenType0YardAnd1Yard_ShouldReturnEqual(){
+        Yard yard1  = new Yard(0.0);
+        Yard yard2  = new Yard(1.0);
+        Assertions.assertEquals(yard1.getClass(),yard2.getClass());
+    }
+
+    @Test
+    public void givenReference0YardAnd0Yard_ShouldReturnNotEqual(){
+        Yard yard1 = new Yard(0.0);
+        Yard yard2 = new Yard(0.0);
+        Assertions.assertNotSame(yard1,yard2);
+    }
+
+    @Test
+    public void givenEquality0YardAnd0Yard_ShouldReturnEqual(){
+        Yard yard1 = new Yard(0.0);
+        double yardOne = yard1.getValue();
+        Yard yard2 = new Yard(0.0);
+        double yardTwo = yard2.getValue();
+        Assertions.assertEquals(yardOne,yardTwo);
+    }
+
+    @Test
+    public void givenCompare1YardAnd3Feet_ShouldReturnEqual(){
+        Yard yard = new Yard(1.0);
+        double actual = yard.getYardToFeet();
+        double expected = 3;
+        Assertions.assertEquals(actual,expected);
+    }
+
+    @Test
+    public void givenCompare1YardAnd2Feet_ShouldReturnNotEqual(){
+        Yard yard = new Yard(1.0);
+        double actual = yard.getYardToFeet();
+        double expected = 2;
         Assertions.assertNotEquals(actual,expected);
     }
 
