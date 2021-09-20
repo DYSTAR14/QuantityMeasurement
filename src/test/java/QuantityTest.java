@@ -10,11 +10,43 @@ public class QuantityTest {
     }
 
     @Test
-    public void given0Feetand1Feet_ShouldReturnEqual(){
+    public void given0Feetand1Feet_ShouldReturnNotEqual(){
         Feet feet1 = new Feet(0.0);
         Feet feet2 = new Feet(1.0);
         Assertions.assertNotEquals(feet1,feet2);
     }
+
+    @Test
+    public void givenNullFeetAnd0Feet_ShouldReturnNotEqual(){
+        Feet feet1 = null;
+        Feet feet2 = new Feet(1.0);
+        Assertions.assertNotEquals(feet1,feet2);
+    }
+
+    @Test
+    public void givenType0FeetAnd1_ShouldReturnEqual(){
+        Feet feet1 = new Feet(0.0);
+        Feet feet2 = new Feet(1.0);
+        Assertions.assertEquals(feet1.getClass(),feet2.getClass());
+    }
+
+    @Test
+    public void givenReference0FeetAnd0Feet_ShouldReturnNotEqual(){
+        Feet feet1 = new Feet(0.0);
+        Feet feet2 = new Feet(0.0);
+        Assertions.assertNotSame(feet1,feet2);
+    }
+
+    @Test
+    public void givenEquality0FeetAnd0Feet_ShouldReturnNotEqual(){
+        Feet feet1 = new Feet(0.0);
+        double feetOne = feet1.getValue();
+        Feet feet2 = new Feet(0.0);
+        double feetTwo = feet2.getValue();
+        Assertions.assertEquals(feetOne,feetTwo);
+    }
+
+
 
     @Test
     public void given0Inchand0Inch_ShouldReturnEqual(){
