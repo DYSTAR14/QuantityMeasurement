@@ -17,4 +17,8 @@ public class Feet {
     public Feet(double value){
         this.value = value;
     }
+
+    public double getFeetToInch() {
+        return value*12;
+    }
 }

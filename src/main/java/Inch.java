@@ -8,9 +8,17 @@ public class Inch {
         return Double.compare(inch.value, value) == 0;
     }
 
+    public double getValue() {
+        return value;
+    }
+
     private final double value;
 
     public Inch(double value) {
         this.value = value;
+    }
+
+    public double getInchToFeet() {
+        return value/12;
     }
 }
