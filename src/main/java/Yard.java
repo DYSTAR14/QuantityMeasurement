@@ -1,13 +1,6 @@
 import java.util.Objects;
 
 public class Yard {
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Yard yard = (Yard) o;
-        return Double.compare(yard.value, value) == 0;
-    }
 
     private final double value;
 
@@ -20,6 +13,18 @@ public class Yard {
     }
 
     public double getYardToFeet() {
-        return value*3;
+        return value * 3;
+    }
+
+    public double getYardToInch() {
+        return value * 36;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Yard yard = (Yard) o;
+        return Double.compare(yard.value, value) == 0;
     }
 }
