@@ -1,10 +1,19 @@
 public class Length {
-    private final double value;
     public final Unit unit;
+    private final double value;
 
     public Length(Unit unit, double value) {
         this.unit = unit;
         this.value = value;
+    }
+
+    public static boolean compare(Length l1, Length l2) {
+        return Double.compare(Math.ceil(l1.getValue() * l1.getUnit().baseUnitConversion),
+                Math.ceil(l2.getValue() * l2.getUnit().baseUnitConversion)) == 0;
+    }
+
+    public static double add(Length l1, Length l2) {
+        return Math.ceil(l1.getValue() * l1.getUnit().baseUnitConversion + l2.getValue() * l2.getUnit().baseUnitConversion);
     }
 
     public double getValue() {
@@ -13,11 +22,6 @@ public class Length {
 
     public Unit getUnit() {
         return unit;
-    }
-
-    public static boolean compare(Length l1,Length l2){
-        return Double.compare(l1.getValue() * l1.getUnit().baseUnitConversion,
-                l2.getValue() * l2.getUnit().baseUnitConversion)==0;
     }
 
     @Override
