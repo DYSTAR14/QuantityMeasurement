@@ -1,8 +1,8 @@
 public class Length {
-    public final Unit unit;
+    public final LengthUnit unit;
     private final double value;
 
-    public Length(Unit unit, double value) {
+    public Length(LengthUnit unit, double value) {
         this.unit = unit;
         this.value = value;
     }
@@ -20,7 +20,7 @@ public class Length {
         return value;
     }
 
-    public Unit getUnit() {
+    public LengthUnit getUnit() {
         return unit;
     }
 
