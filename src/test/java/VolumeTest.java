@@ -48,11 +48,20 @@ public class VolumeTest {
     }
 
     @Test
-    public void given1Gallonand3_78Liter_ShouldReturnEqual() {
+    public void given1Gallonand3_78Liter_WhenCompared_ShouldReturnEqual() {
         Volume gallon1 = new Volume(VolumeUnit.GALLON, 1.0);
-        Volume litre2 = new Volume(VolumeUnit.LITRE, 3.7854);
+        Volume litre2 = new Volume(VolumeUnit.LITRE, 3.78);
         boolean compareCheck = Volume.compare(gallon1, litre2);
         Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1Gallonand3_78Liter_ShouldReturnEqual() {
+        Volume gallon1 = new Volume(VolumeUnit.GALLON, 1.0);
+        Volume litre2 = new Volume(VolumeUnit.LITRE, 3.78);
+        double actual = Volume.add(gallon1, litre2);
+        double expected = 7.57;
+        Assertions.assertEquals(expected,actual);
     }
 
 
@@ -102,13 +111,21 @@ public class VolumeTest {
     }
 
     @Test
-    public void given1Litreand1000Milliliter_ShouldReturnEqual() {
+    public void given1Litreand1000Milliliter_WhenCompared_ShouldReturnEqual() {
         Volume gallon1 = new Volume(VolumeUnit.LITRE, 1.0);
         Volume litre2 = new Volume(VolumeUnit.MILLILITER, 1000.0);
         boolean compareCheck = Volume.compare(gallon1, litre2);
         Assertions.assertTrue(compareCheck);
     }
 
+    @Test
+    public void given1Litreand1000Milliliter_ShouldReturnEqual() {
+        Volume gallon1 = new Volume(VolumeUnit.LITRE, 1.0);
+        Volume litre2 = new Volume(VolumeUnit.MILLILITER, 1000.0);
+        double actual = Volume.add(gallon1, litre2);
+        double expected = 2.0;
+        Assertions.assertEquals(expected,actual);
+    }
 
     //Milliliter
     @Test

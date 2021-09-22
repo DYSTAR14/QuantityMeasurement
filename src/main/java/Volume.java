@@ -1,4 +1,3 @@
-import java.util.Objects;
 
 public class Volume {
     private final VolumeUnit unit;
@@ -12,6 +11,12 @@ public class Volume {
     public static boolean compare(Volume v1, Volume v2) {
         return Double.compare(Math.ceil(v1.getValue() * v1.getUnit().baseUnitConversion),
                 Math.ceil(v2.getValue() * v2.getUnit().baseUnitConversion)) == 0;
+    }
+
+    public static double add(Volume v1, Volume v2) {
+        System.out.println(Math.ceil(v1.getValue() * v1.getUnit().baseUnitConversion));
+        System.out.println(Math.ceil(v2.getValue() * v2.getUnit().baseUnitConversion));
+        return v1.getValue() * v1.getUnit().baseUnitConversion + v2.getValue() * v2.getUnit().baseUnitConversion;
     }
 
     public VolumeUnit getUnit() {
