@@ -1,3 +1,3 @@
 public enum Measurement {
-    LENGTH,VOLUME,WEIGHT;
+    LENGTH,VOLUME,WEIGHT,TEMPERATURE;
 }

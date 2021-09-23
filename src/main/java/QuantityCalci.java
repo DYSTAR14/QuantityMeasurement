@@ -1,5 +1,4 @@
 import java.text.DecimalFormat;
-import java.util.Objects;
 
 public class QuantityCalci {
     static final DecimalFormat dfCompare = new DecimalFormat("###.####");
@@ -12,36 +11,21 @@ public class QuantityCalci {
         this.value = value;
     }
 
-    public static boolean compare(QuantityCalci l1, QuantityCalci l2) {
-        if(l1.getUnit().quantityUnit.equals(l2.getUnit().quantityUnit))
+    public static boolean compare(QuantityCalci measure1, QuantityCalci measure2) {
+        if (measure1.getUnit().quantityUnit.equals(measure2.getUnit().quantityUnit))
             return Double.compare(
-                    Math.ceil(
-                    Double.parseDouble(
-                            dfCompare.format(l1.getValue() * l1.getUnit().baseUnitConversion)
-                    )),
-                    Math.ceil(
-                    Double.parseDouble(
-                            dfCompare.format(l2.getValue() * l2.getUnit().baseUnitConversion)
-                    ))
-            ) == 0;
+                    Math.ceil(Double.parseDouble(dfCompare.format(measure1.unit.getBaseUnit(measure1)))),
+                    Math.ceil(Double.parseDouble(dfCompare.format(measure1.unit.getBaseUnit(measure2))))) == 0;
         return false;
     }
 
-    public static Double add(QuantityCalci l1, QuantityCalci l2) {
-        if(l1.getUnit().quantityUnit.equals(l2.getUnit().quantityUnit))
-            return Double.parseDouble(
-                    dfAddd.format(
-                            l1.getValue() * l1.getUnit().baseUnitConversion +
-                                    l2.getValue() * l2.getUnit().baseUnitConversion
-                    )
-            );
+    public static Double add(QuantityCalci measure, QuantityCalci l2) {
+        if (measure.getUnit().quantityUnit.equals(l2.getUnit().quantityUnit))
+            return Double.parseDouble(dfAddd.format(measure.getValue() * measure.getUnit().baseUnitConversion
+                    + l2.getValue() * l2.getUnit().baseUnitConversion));
         return null;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(unit, value);
-    }
 
     public double getValue() {
         return value;

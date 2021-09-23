@@ -125,14 +125,6 @@ public class QuantityCalciWeightTest {
         Assertions.assertTrue(compareCheck);
     }
 
-//    @Test
-//    public void given1Kilogramand1Gram_WhenCompared_ShouldReturnNotEqual() {
-//        QuantityCalci kilogram1 = new QuantityCalci(Unit.KILOGRAM, 1.0);
-//        QuantityCalci gram1 = new QuantityCalci(Unit.GRAM, 1.0);
-//        boolean compareCheck = QuantityCalci.compare(kilogram1, gram1);
-//        Assertions.assertFalse(compareCheck);
-//    }
-
     //Gram
     @Test
     public void given0Gramand0Gram_ShouldReturnEqual() {
