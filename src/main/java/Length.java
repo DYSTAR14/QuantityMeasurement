@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Length {
     public final LengthUnit unit;
     private final double value;
@@ -13,7 +15,9 @@ public class Length {
     }
 
     public static double add(Length l1, Length l2) {
-        return Math.ceil(l1.getValue() * l1.getUnit().baseUnitConversion + l2.getValue() * l2.getUnit().baseUnitConversion);
+        DecimalFormat df = new DecimalFormat("###.##");
+        return Double.parseDouble(df.format(l1.getValue() * l1.getUnit().baseUnitConversion +
+                l2.getValue() * l2.getUnit().baseUnitConversion));
     }
 
     public double getValue() {

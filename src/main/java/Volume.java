@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 
 public class Volume {
     private final VolumeUnit unit;
@@ -14,9 +15,9 @@ public class Volume {
     }
 
     public static double add(Volume v1, Volume v2) {
-        System.out.println(Math.ceil(v1.getValue() * v1.getUnit().baseUnitConversion));
-        System.out.println(Math.ceil(v2.getValue() * v2.getUnit().baseUnitConversion));
-        return v1.getValue() * v1.getUnit().baseUnitConversion + v2.getValue() * v2.getUnit().baseUnitConversion;
+        DecimalFormat df = new DecimalFormat("###.##");
+        return Double.parseDouble(df.format(v1.getValue() * v1.getUnit().baseUnitConversion +
+                v2.getValue() * v2.getUnit().baseUnitConversion));
     }
 
     public VolumeUnit getUnit() {
