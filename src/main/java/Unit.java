@@ -32,7 +32,7 @@ public enum Unit implements MeasurementService{
     }
 
     @Override
-    public Double getBaseUnit(QuantityCalci measure) {
+    public Double getBaseUnit(MeasurementCalci measure) {
         if (String.valueOf(measure.getUnit().quantityUnit).equals("TEMPERATURE")){
             return getTemperature(measure.getUnit(),measure.getValue());
         }

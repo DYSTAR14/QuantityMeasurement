@@ -1,17 +1,17 @@
 import java.text.DecimalFormat;
 
-public class QuantityCalci {
+public class MeasurementCalci {
     static final DecimalFormat dfCompare = new DecimalFormat("###.####");
     static final DecimalFormat dfAddd = new DecimalFormat("###.##");
     public final Unit unit;
     private final double value;
 
-    public QuantityCalci(Unit unit, double value) {
+    public MeasurementCalci(Unit unit, double value) {
         this.unit = unit;
         this.value = value;
     }
 
-    public static boolean compare(QuantityCalci measure1, QuantityCalci measure2) {
+    public static boolean compare(MeasurementCalci measure1, MeasurementCalci measure2) {
         if (measure1.getUnit().quantityUnit.equals(measure2.getUnit().quantityUnit))
             return Double.compare(
                     Math.ceil(Double.parseDouble(dfCompare.format(measure1.unit.getBaseUnit(measure1)))),
@@ -19,10 +19,11 @@ public class QuantityCalci {
         return false;
     }
 
-    public static Double add(QuantityCalci measure, QuantityCalci l2) {
+    public static Double add(MeasurementCalci measure, MeasurementCalci l2) {
         if (measure.getUnit().quantityUnit.equals(l2.getUnit().quantityUnit))
-            return Double.parseDouble(dfAddd.format(measure.getValue() * measure.getUnit().baseUnitConversion
-                    + l2.getValue() * l2.getUnit().baseUnitConversion));
+            return Double.parseDouble(
+                    dfAddd.format(measure.getValue() * measure.getUnit().baseUnitConversion +
+                            l2.getValue() * l2.getUnit().baseUnitConversion));
         return null;
     }
 
@@ -36,11 +37,13 @@ public class QuantityCalci {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        QuantityCalci that = (QuantityCalci) o;
-        return Double.compare(that.value, value) == 0 && unit == that.unit;
+    public boolean equals(Object that) {
+        if (this == that)
+            return true;
+        if (that == null || getClass() != that.getClass())
+            return false;
+        MeasurementCalci measurementCalci = (MeasurementCalci) that;
+        return Double.compare(measurementCalci.value, value) == 0 && unit == measurementCalci.unit;
     }
 
 

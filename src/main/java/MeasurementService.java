@@ -1,3 +1,3 @@
 public interface MeasurementService {
-    Double getBaseUnit(QuantityCalci l1);
+    Double getBaseUnit(MeasurementCalci l1);
 }
